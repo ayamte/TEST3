@@ -1,0 +1,25 @@
+version: '3'  
+  
+services:  
+  web:  
+    build: .  
+    ports:  
+      - "5000:5000"  
+    volumes:  
+      - ./:/app  
+    environment:  
+      - GROQ_API_KEY=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  
+      - MONGODB_URI=mongodb://mongo:27017/cv_database  
+    depends_on:  
+      - mongo  
+  
+  mongo:
+    command: mongod --logpath /var/log/mongodb/mongod.log --logappend --setParameter logLevel=1  
+    image: mongo:latest  
+    ports:  
+      - "27017:27017"  
+    volumes:  
+      - mongodb_data:/data/db  
+  
+volumes:  
+  mongodb_data:

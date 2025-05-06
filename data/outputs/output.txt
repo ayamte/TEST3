@@ -1,0 +1,48 @@
+MTEJJALAya
+DeuxièmeAnnéeGénieLogiciel-ENSIAS
+Alarecherched’unstagededeuxmoisenDéveloppementFullStack
+AyaMtejjal
+AyaMtejjal
+�+212637614680
+�ayamtejjal123@gmail.com
+�Education
+2023-2026 Diplômeengénielogiciel EcoleNationaleSupérieured’Informatiqueetd’AnalysedesSystèmes(ENSIAS)
+-Filière:GénieLogiciel
+2021-2023 ClassesPréparatoires(CPGE) LycéeTechniqueErrazi,ElJadida- Option: MPSI-MP
+2020-2021 Baccalauréatensciencemathématique LycéeOuladHriz,Berrechid- Filière:ScienceMathématiqueA
+OptionInternationale
+�Compétences
+LangagesetFrameworks: JavaScript, React, Redux, Node.js, Express, PHP, Laravel, Java, Spring Boot, Python, C, C++,
+JWT,HTML,CSS,Three.js,Bootstrap
+BasesdeDonnées: MongoDB,MySQL,OracleDatabase,PL/SQL,OracleAPEX
+IntelligenceArtificielleandData: Python,NumPy,Matplotlib,Fondamentauxdel’IA,DataWarehouse,SSIS(SQLServerIntegra-
+tionServices)
+CloudandVirtualisation: FondamentauxdeCloudComputing,VMware
+ConceptionandMéthodologies: UML,Merise,DesignPatterns
+OutilsetDéveloppement: Git,GitHub,Docker,AndroidStudio,Kubernetes,Linux,XML
+Certification: Certificatd’AnalysteenIntelligenceArtificielle–IBM
+�ProjetsAcadémiques
+1.Développementd’uneapplicationdegestiondesemploisetcompétences-ProjectFind’AnnéePFA
+∠Techs:HTML,CSS,JavaScript,PHPLARAVEL
+∠Détail:Gestionefficacedesressourceshumainesetoptimisationdelaproductivité.
+2.Applicationwebdegestionduserviceclient(StagePFA–Munisys)
+∠Techs:React,Redux,Node.js,Express.js,MongoDB,JWT,Bootstrap
+∠Détail:Créationd’unsystèmedegestiondesdemandesclientsviaunchatbotintelligent,incluantuntableaudebordpour
+lesagentsdusupport.
+3.AstroMap–Plateformeinteractived’explorationspatiale
+∠Techs:React.js,ReactThreeFiber(Three.js),SpringBoot,Docker
+∠Détail:Applicationwebéducativeetimmersivepourl’explorationdusystèmesolaireen3D.
+4.Applicationwebdegestiondesstages
+∠Techs:OracleAPEX,PL/SQL,SQL,OracleForms,Triggers
+∠Détail:Digitalisationduprocessusdesuividesstagesentrelesétudiants,lesentreprisesetlesenseignantsresponsables.
+5.Applicationmobileintelligentedegestiondetâches
+∠Techs:AndroidStudio,Java,Firebase
+∠Détail:Créationd’uneto-dolistintelligenteavecpriorisationautomatiqueviaIA,notificationsintelligentes,etintégration
+GoogleAgenda.
+�Langues
+Anglais: Courant Français: Courant Arabe:LangueMaternelle
+�Parascolaire
+En tant que responsable des dons du club social CIDNH de l’école ENSIAS, je gère les collectes de fonds pour soutenir les
+activitésduclub,enorganisantdesstandsetencontactantdesassociationscaritatives.
+J’assureégalementlacoordinationdelacollecteetdeladistributiondesvêtementspourlesfamillesbénéficiaireslorsdenotre
+convoisocio-médicalannuel.

@@ -1,0 +1,146 @@
+{
+  "informations_personnelles": {
+    "nom": "Mtejjal",
+    "prenom": "Aya",
+    "telephone": "+212637614680",
+    "email": "ayamtejjal123@gmail.com"
+  },
+  "education": [
+    {
+      "diplome": "Diplôme ingénieur logiciel",
+      "institution": "Ecole Nationale Supérieure d'Informatique et d'Analyse des Systèmes (ENSIAS)",
+      "dates": "2023-2026",
+      "filiere": "Génie Logiciel"
+    },
+    {
+      "diplome": "Classes Préparatoires (CPGE)",
+      "institution": "Lycée Technique Errazi, El Jadida",
+      "dates": "2021-2023",
+      "filiere": "MPSI-MP"
+    },
+    {
+      "diplome": "Baccalauréat en science mathématique",
+      "institution": "Lycée Oulad Hriz, Berrechid",
+      "dates": "2020-2021",
+      "filiere": "Science Mathématique A"
+    }
+  ],
+  "competences": {
+    "langages_et_frameworks": [
+      "JavaScript",
+      "React",
+      "Redux",
+      "Node.js",
+      "Express",
+      "PHP",
+      "Laravel",
+      "Java",
+      "Spring Boot",
+      "Python",
+      "C",
+      "C++"
+    ],
+    "bases_de_donnees": [
+      "MongoDB",
+      "MySQL",
+      "Oracle Database",
+      "PL/SQL",
+      "Oracle APEX"
+    ],
+    "intelligence_artificielle_and_data": [
+      "Python",
+      "NumPy",
+      "Matplotlib",
+      "Fondamentaux de l'IA",
+      "DataWarehouse",
+      "SSIS (SQL Server Integration Services)"
+    ],
+    "cloud_and_virtualisation": [
+      "Fondamentaux de Cloud Computing",
+      "VMware"
+    ],
+    "conception_and_methodologies": [
+      "UML",
+      "Merise",
+      "Design Patterns"
+    ],
+    "outils_et_developpement": [
+      "Git",
+      "GitHub",
+      "Docker",
+      "Android Studio",
+      "Kubernetes",
+      "Linux",
+      "XML"
+    ],
+    "certification": "Certificat d'analyste en Intelligence Artificielle"
+  },
+  "projets_academiques": [
+    {
+      "nom": "Développement d'une application de gestion des emplois et compétences",
+      "technologies": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "PHP LARAVEL"
+      ],
+      "description1": "Gestion efficace des ressources humaines et optimisation de la productivité."
+    },
+    {
+      "nom": "Application web de gestion du service client",
+      "technologies": [
+        "React",
+        "Redux",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "JWT",
+        "Bootstrap"
+      ],
+      "description1": "Création d'un système de gestion des demandes clients via un chatbot intelligent, incluant un tableau de bord pour les agents du support."
+    },
+    {
+      "nom": "AstroMap – Plateforme interactive d'exploration spatiale",
+      "technologies": [
+        "React.js",
+        "React Three Fiber (Three.js)",
+        "Spring Boot",
+        "Docker"
+      ],
+      "description1": "Application web éducative et immersive pour l'exploration du système solaire en 3D."
+    },
+    {
+      "nom": "Application web de gestion des stages",
+      "technologies": [
+        "Oracle APEX",
+        "PL/SQL",
+        "SQL",
+        "Oracle Forms",
+        "Triggers"
+      ],
+      "description1": "Digitalisation du processus de suivi des stages entre les étudiants, les entreprises et les enseignants responsables."
+    },
+    {
+      "nom": "Application mobile intelligente de gestion de tâches",
+      "technologies": [
+        "Android Studio",
+        "Java",
+        "Firebase"
+      ],
+      "description1": "Création d'un to-do list intelligent avec priorisation automatique via IA, notifications intelligentes, et intégration Google Agenda."
+    }
+  ],
+  "langues": {
+    "anglais": "Courant",
+    "francais": "Courant",
+    "arabe": "Langue Maternelle"
+  },
+  "activites_extra_scolaires": [
+    {
+      "description1": "En tant que responsable des dons du club social CIDNH de l'école ENSIAS, je gère les collectes de fonds pour soutenir les activités du club, en organisant des stands et en contactant des associations caritatives."
+    },
+    {
+      "description1": "J'assure également la coordination de la collecte et de la distribution des vêtements pour les familles bénéficiaires lors de notre convoi socio-médical annuel."
+    }
+  ]
+}

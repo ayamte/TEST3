@@ -1,0 +1,19 @@
+{
+  "profils_recommandés": [
+    {
+      "nom": "Développeur Full Stack",
+      "score_similarité": 0.92,
+      "raisons": "Le CV montre une maîtrise de plusieurs langages de programmation (JavaScript, React, Node.js, Express.js, PHP, Laravel, Java, Spring Boot, Python) et des compétences en développement web (HTML, CSS, React Native). Les projets présentés (application de gestion des emplois et compétences, application web de gestion du service client, AstroMap) démontrent une expérience dans le développement full stack."
+    },
+    {
+      "nom": "Développeur Java",
+      "score_similarité": 0.88,
+      "raisons": "Le CV mentionne une maîtrise de Java et Spring Boot, ainsi que des compétences en développement web (React, Redux, Node.js, Express.js). Les projets présentés (application web de gestion du service client, AstroMap) montrent une expérience dans le développement Java."
+    },
+    {
+      "nom": "Ingénieur en Intelligence Artificielle",
+      "score_similarité": 0.85,
+      "raisons": "Le CV montre une maîtrise de plusieurs compétences en intelligence artificielle (Python, NumPy, Matplotlib, Fondamentaux de l'IA, Data Warehouse, SSIS) et des compétences en développement web et mobile (React, Redux, Node.js, Express.js, Android Studio). Les projets présentés (AstroMap, application mobile intelligente de gestion de tâches) démontrent une expérience dans l'intelligence artificielle."
+    }
+  ]
+}

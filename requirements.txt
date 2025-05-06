@@ -1,0 +1,24 @@
+# PDF processing  
+PyPDF2==3.0.1  
+pdf2image==1.16.3  
+pytesseract==0.3.10  
+  
+# LLM API - Utiliser une version spécifique de groq qui fonctionne avec votre code  
+groq==0.4.1  
+  
+# Database  
+pymongo==4.6.1  
+  
+# Vector-based recommendation - Versions compatibles  
+scikit-learn==1.3.2  
+huggingface_hub==0.12.0  # Version qui contient encore cached_download  
+sentence-transformers==2.2.2  # Version compatible avec huggingface_hub 0.12.0  
+numpy==1.24.3  
+  
+# Web framework  
+flask==2.3.3  
+Werkzeug==2.3.7  # Version compatible avec Flask 2.3.3  
+  
+# Utilitaires  
+python-dotenv==1.0.0  # Pour gérer les fichiers .env  
+httpx==0.24.1  # Client HTTP utilisé par groq
