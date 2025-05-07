@@ -47,19 +47,18 @@
       "PL/SQL",
       "Oracle APEX"
     ],
-    "intelligence_artificielle_and_data": [
+    "intelligence_artificielle_et_data": [
       "Python",
       "NumPy",
-      "Matplotlib",
       "Fondamentaux de l'IA",
-      "DataWarehouse",
+      "Data Warehouse",
       "SSIS (SQL Server Integration Services)"
     ],
-    "cloud_and_virtualisation": [
+    "cloud_et_virtualisation": [
       "Fondamentaux de Cloud Computing",
       "VMware"
     ],
-    "conception_and_methodologies": [
+    "conception_et_methodologies": [
       "UML",
       "Merise",
       "Design Patterns"
@@ -73,7 +72,9 @@
       "Linux",
       "XML"
     ],
-    "certification": "Certificat d'analyste en Intelligence Artificielle"
+    "certification": [
+      "Certificat d'analyste en Intelligence Artificielle"
+    ]
   },
   "projets_academiques": [
     {
@@ -82,12 +83,12 @@
         "HTML",
         "CSS",
         "JavaScript",
-        "PHP LARAVEL"
+        "PHP Laravel"
       ],
       "description1": "Gestion efficace des ressources humaines et optimisation de la productivité."
     },
     {
-      "nom": "Application web de gestion du service client",
+      "nom": "Application web de gestion du service client (Stage PFA – Munisys)",
       "technologies": [
         "React",
         "Redux",
@@ -127,12 +128,12 @@
         "Java",
         "Firebase"
       ],
-      "description1": "Création d'un to-do list intelligent avec priorisation automatique via IA, notifications intelligentes, et intégration Google Agenda."
+      "description1": "Création d'une to-do list intelligente avec priorisation automatique via IA, notifications intelligentes, et intégration Google Agenda."
     }
   ],
   "langues": {
     "anglais": "Courant",
-    "francais": "Courant",
+    "français": "Courant",
     "arabe": "Langue Maternelle"
   },
   "activites_extra_scolaires": [

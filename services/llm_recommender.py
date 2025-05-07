@@ -102,7 +102,7 @@ class LLMRecommender:
             "profils_recommandés": [
                 {{
                     "nom": "profile_name",
-                    "score_similarité": 0.95,
+                    "score_similarité": <score between 0 and 1>,
                     "raisons": "Explanation of the reasons for this recommendation"
                 }},
                 ...
@@ -142,7 +142,7 @@ class LLMRecommender:
                     },
                     {"role": "user", "content": prompt}
                 ],
-                temperature=0.05,
+                temperature=0.3,
                 max_tokens=4000
             )
 

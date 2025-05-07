@@ -17,7 +17,7 @@ services:
     command: mongod --logpath /var/log/mongodb/mongod.log --logappend --setParameter logLevel=1  
     image: mongo:latest  
     ports:  
-      - "27017:27017"  
+      - "27019:27017"  
     volumes:  
       - mongodb_data:/data/db  
   

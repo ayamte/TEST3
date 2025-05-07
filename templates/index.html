@@ -161,21 +161,44 @@
                 body: formData  
             })  
             .then(response => response.json())  
-            .then(data => {  
-                if (data.success) {  
-                    document.getElementById('upload-results').innerHTML =   
-                        `<div class="alert alert-success">CV traité et enregistré avec succès!</div>  
-                         <div class="card mt-3">  
-                            <div class="card-header">Données structurées</div>  
-                            <div class="card-body">  
-                                <pre>${JSON.stringify(data.cv_data, null, 2)}</pre>  
-                            </div>  
-                         </div>`;  
-                } else {  
-                    document.getElementById('upload-results').innerHTML =   
-                        `<div class="alert alert-danger">Erreur: ${data.error}</div>`;  
-                }  
-            })  
+            .then(data => {    
+    if (data.success) {    
+        let html = `<div class="alert alert-success">CV traité et enregistré avec succès!</div>`;  
+          
+        // Afficher les recommandations si disponibles  
+        if (data.recommendations && data.recommendations.profils_recommandés) {  
+            html += `  
+            <div class="card mt-3">  
+                <div class="card-header">Profils IT recommandés</div>  
+                <div class="card-body">  
+                    <h5>Voici les profils IT qui correspondent le mieux à ce CV :</h5>  
+                    <ul class="list-group">`;  
+              
+            data.recommendations.profils_recommandés.forEach(profil => {  
+                html += `  
+                <li class="list-group-item d-flex justify-content-between align-items-center">  
+                    ${profil.nom}  
+                    <span class="badge bg-primary rounded-pill">Score: ${profil.score_similarité}</span>  
+                </li>`;  
+            });  
+              
+            html += `  
+                    </ul>  
+                </div>  
+            </div>`;  
+        } else {  
+            html += `  
+            <div class="alert alert-warning mt-3">  
+                Aucune recommandation de profil n'a pu être générée pour ce CV.  
+            </div>`;  
+        }  
+          
+        document.getElementById('upload-results').innerHTML = html;  
+    } else {    
+        document.getElementById('upload-results').innerHTML =     
+            `<div class="alert alert-danger">Erreur: ${data.error}</div>`;    
+    }    
+})  
             .catch(error => {  
                 console.error('Erreur:', error);  
                 document.getElementById('upload-results').innerHTML =   
@@ -184,38 +207,59 @@
         });  
           
         function displayResults(candidates) {  
-            const resultsContainer = document.getElementById('results');  
-              
-            if (candidates.length === 0) {  
-                resultsContainer.innerHTML = '<div class="alert alert-warning">Aucun candidat correspondant trouvé.</div>';  
-                return;  
-            }  
-              
-            let html = '<h4>Candidats recommandés</h4>';  
-              
-            candidates.forEach((candidate, index) => {  
-                html += `  
-                <div class="card candidate-card mb-3">  
-                    <div class="card-body">  
-                        <h5 class="card-title">${candidate.nom_complet}</h5>  
-                        <h6 class="card-subtitle mb-2 text-muted">${candidate.email}</h6>  
-                        <p class="card-text">  
-                            <strong>Score de correspondance:</strong> ${candidate.score}%  
-                        </p>  
-                        <div>  
-                            <strong>Compétences clés:</strong>  
-                            <ul>  
-                                ${getSkillsList(candidate.competences)}  
-                            </ul>  
-                        </div>  
-                    </div>  
-                </div>  
-                `;  
-            });  
-              
-            resultsContainer.innerHTML = html;  
+  const resultsContainer = document.getElementById('results');  
+  if (!candidates || candidates.length === 0) {  
+    resultsContainer.innerHTML = '<div class="alert alert-warning">Aucun candidat correspondant trouvé.</div>';  
+    return;  
+  }  
+  
+  let html = '<h4>Candidats recommandés</h4>';  
+  candidates.forEach(candidate => {  
+    // Extraire les compétences de l'objet  
+    let skillsHtml = '';  
+    if (candidate.competences && typeof candidate.competences === 'object') {  
+      let allSkills = [];  
+      // Parcourir les catégories de compétences  
+      for (const category in candidate.competences) {  
+        if (Array.isArray(candidate.competences[category])) {  
+          // Ajouter les compétences de cette catégorie  
+          allSkills = allSkills.concat(candidate.competences[category]);  
         }  
-          
+      }  
+      // Limiter à 10 compétences maximum et les joindre avec des virgules  
+      skillsHtml = allSkills.slice(0, 10).join(', ');  
+    }  
+  
+    html += `  
+      <div class="card candidate-card mb-3">  
+        <div class="card-body">  
+          <h5 class="card-title">${candidate.nom_complet}</h5>  
+          <h6 class="card-subtitle mb-2 text-muted">${candidate.email}</h6>  
+          <p class="card-text">  
+            <strong>Score de correspondance:</strong> ${candidate.score}%  
+          </p>  
+          <div><strong>Compétences clés:</strong> ${skillsHtml}</div>  
+          <div class="mt-3">  
+            <button class="btn btn-primary btn-sm view-cv-btn" data-email="${candidate.email}">Voir le CV</button>  
+          </div>  
+        </div>  
+      </div>`;  
+  });  
+  
+  resultsContainer.innerHTML = html;  
+    
+  // Ajouter des écouteurs d'événements aux boutons "Voir le CV"  
+  document.querySelectorAll('.view-cv-btn').forEach(button => {  
+    button.addEventListener('click', function() {  
+      const email = this.getAttribute('data-email');  
+      viewCV(email);  
+    });  
+  });  
+}     
+
+
+
+
         function getSkillsList(competences) {  
             let html = '';  
               
@@ -230,6 +274,113 @@
               
             return html;  
         }  
+
+
+
+        function viewCV(email) {  
+  // Afficher un message de chargement  
+  document.getElementById('cv-modal-body').innerHTML = '<div class="text-center"><div class="spinner-border" role="status"><span class="visually-hidden">Chargement...</span></div></div>';  
+    
+  // Afficher la modal  
+  const cvModal = new bootstrap.Modal(document.getElementById('cv-modal'));  
+  cvModal.show();  
+    
+  // Récupérer les détails du CV  
+  fetch(`/api/get-cv?email=${encodeURIComponent(email)}`)  
+    .then(response => response.json())  
+    .then(data => {  
+      if (data.success) {  
+        const cv = data.cv;  
+          
+        // Construire l'affichage du CV  
+        let html = `  
+          <div class="cv-details">  
+            <h4>${cv.informations_personnelles?.prenom || ''} ${cv.informations_personnelles?.nom || ''}</h4>  
+            <p><strong>Email:</strong> ${cv.informations_personnelles?.email || ''}</p>  
+            <p><strong>Téléphone:</strong> ${cv.informations_personnelles?.telephone || ''}</p>  
+              
+            <h5 class="mt-4">Compétences</h5>  
+            <div class="row">`;  
+          
+        // Afficher les compétences par catégorie  
+        if (cv.competences && typeof cv.competences === 'object') {  
+          for (const category in cv.competences) {  
+            if (Array.isArray(cv.competences[category]) && cv.competences[category].length > 0) {  
+              html += `  
+                <div class="col-md-6 mb-3">  
+                  <h6>${category}</h6>  
+                  <ul>  
+                    ${cv.competences[category].map(skill => `<li>${skill}</li>`).join('')}  
+                  </ul>  
+                </div>`;  
+            }  
+          }  
+        }  
+          
+        html += `</div>  
+            
+          <h5 class="mt-4">Expérience professionnelle</h5>`;  
+          
+        // Afficher les expériences professionnelles  
+        if (Array.isArray(cv.experiences_professionnelles)) {  
+          cv.experiences_professionnelles.forEach(exp => {  
+            html += `  
+              <div class="card mb-3">  
+                <div class="card-body">  
+                  <h6>${exp.poste || ''} - ${exp.entreprise || ''}</h6>  
+                  <p class="text-muted">${exp.date_debut || ''} - ${exp.date_fin || 'Présent'}</p>  
+                  <p>${exp.description || ''}</p>  
+                </div>  
+              </div>`;  
+          });  
+        }  
+          
+        html += `  
+          <h5 class="mt-4">Formation</h5>`;  
+          
+        // Afficher les formations  
+        if (Array.isArray(cv.formation)) {  
+          cv.formation.forEach(form => {  
+            html += `  
+              <div class="card mb-3">  
+                <div class="card-body">  
+                  <h6>${form.diplome || ''} - ${form.etablissement || ''}</h6>  
+                  <p class="text-muted">${form.date_debut || ''} - ${form.date_fin || ''}</p>  
+                  <p>${form.description || ''}</p>  
+                </div>  
+              </div>`;  
+          });  
+        }  
+          
+        html += `</div>`;  
+          
+        document.getElementById('cv-modal-body').innerHTML = html;  
+      } else {  
+        document.getElementById('cv-modal-body').innerHTML = `<div class="alert alert-danger">Erreur: ${data.error}</div>`;  
+      }  
+    })  
+    .catch(error => {  
+      console.error('Erreur:', error);  
+      document.getElementById('cv-modal-body').innerHTML = '<div class="alert alert-danger">Une erreur est survenue lors de la récupération du CV.</div>';  
+    });  
+}
     </script>  
+    <!-- Modal pour afficher le CV -->  
+<div class="modal fade" id="cv-modal" tabindex="-1" aria-labelledby="cv-modal-label" aria-hidden="true">  
+    <div class="modal-dialog modal-lg">  
+      <div class="modal-content">  
+        <div class="modal-header">  
+          <h5 class="modal-title" id="cv-modal-label">Détails du CV</h5>  
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>  
+        </div>  
+        <div class="modal-body" id="cv-modal-body">  
+          <!-- Le contenu du CV sera inséré ici -->  
+        </div>  
+        <div class="modal-footer">  
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>  
+        </div>  
+      </div>  
+    </div>  
+  </div>
 </body>  
 </html>
